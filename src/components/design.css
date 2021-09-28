@@ -1,0 +1,17 @@
+.container{
+    background-color: rgb(39, 180, 81);
+    font-weight:bold;
+    font-size: 18;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+} 
+h1{
+    color: rgb(48, 37, 39);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 100vmin;
+}

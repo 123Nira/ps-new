@@ -1,0 +1,32 @@
+.conatiner{
+    width: 250px;
+    box-shadow: 0 4px 8px 0 black;
+    text-align: center;
+    margin: 2% 0% 0% 23%;
+    height: 70vh;
+    width: 50vw;
+    background-color: #d3c9bc;
+    padding: 10px;
+}
+
+.forms{
+    margin-top: 10vh;
+}
+
+.ordername{
+    margin: 25px;
+}
+
+.customername{
+    margin: 25px;
+}
+.price{
+    margin: 25px;
+}
+
+.submitbutton{
+    color: white;
+    margin: 20px;
+    background-color: green;
+    border-radius: 5px;
+}

@@ -1,6 +1,11 @@
 
 import axios from 'axios';
 import React from 'react';
+import { Route, Switch } from 'react-router';
+import Header from './components/Header';
+import Home from './components/Home';
+import CreateForm from './components/CreateForm';
+import CreateList from './components/CreateList'
 //import './App.css';
 
 class App extends React.Component {
@@ -11,10 +16,17 @@ class App extends React.Component {
       orderId: 0,
       orderName: '',
       customerName: '',
-      price: ''
+      price: '',
+      desktop: 1200,
+      tablet: 768,
+      phone: 576,
 
     }
+    this.state = {
+      windowWidth: null
+    };
   }
+  
   componentDidMount() {
     axios.get("http://localhost:8080/orderapi/list-orders")
       .then((res) => {
@@ -60,58 +72,17 @@ class App extends React.Component {
   }
 
 
-
   render() {
+   
     return (
-      <div className="conatiner">
-        <div className="row">
-          <div className="col s6">
-            <form onSubmit={(e) => this.submit(e, this.state.orderId)}>
-
-              <div className="input-field col s12">
-                <i className="material-icons prefix">textsms</i>
-                <input type="text" value={this.state.orderName} onChange={(e) => this.setState({ orderName: e.target.value })} />
-                <label htmlFor="autocomplete-input">orderName</label>
-              </div>
-              <div className="input-field col s12">
-                <input type="text" value={this.state.customerName} onChange={(e) => this.setState({ customerName: e.target.value })} />
-                <label >customerName</label>
-              </div>
-              <div className="input-field col s12">
-                <input type="text" value={this.state.price} onChange={(e) => this.setState({ price: e.target.value })} />
-                <label >price</label>
-              </div>
-              <button className="btn waves-effect waves-light" type="submit" name="action">Submit
-                <i className="material-icons right">submit</i>
-              </button>
-
-            </form>
-
-          </div>
-          <div className="col s6">
-            <table>
-              <thead>
-                <tr>
-                  <th>Order Name</th>
-                  <th>customer Name</th>
-                  <th> Price</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {
-                  
-                }
-              </tbody>
-            </table>
-
-
-
-
-          </div>
-        </div>
-
-      </div>
+     <div>
+       <Header />
+       <Switch>
+         <Route exact path='/'><Home /></Route>
+         <Route  path='/createorder'><CreateForm /></Route>
+         <Route  path='/orderlist'><CreateList /></Route>
+       </Switch>
+     </div>
     );
   }
 }
